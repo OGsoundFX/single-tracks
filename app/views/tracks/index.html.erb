@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Hello</h1>
+
+  <ul>
+    <% @tracks.each do |track| %>
+      <li>
+        <%= track.title %>
+        <%= link_to "track", track.product_link, target: "_blank" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
