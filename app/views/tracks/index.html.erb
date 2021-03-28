@@ -5,8 +5,11 @@
     <% @tracks.each do |track| %>
       <li>
         <%= track.title %>
-        <%= link_to "track", track.product_link, target: "_blank" %>
+        <%= link_to "download", download_single_path(url: track.product_link, title: track.title) %>
       </li>
     <% end %>
   </ul>
+  <%= link_to "download zip", zip_path %>
+  <%= link_to "download file", download_path %>
+  <%= link_to "download multiple files", download_multiple_path %>
 </div>
