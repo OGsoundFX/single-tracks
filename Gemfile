@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #my gems
 gem 'rubyzip'
+gem 'zipline'
+gem 'activesupport'
+gem 'paperclip'

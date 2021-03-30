@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Hello</h1>
+  <h1 id="javascript">Hello</h1>
 
   <ul>
     <% @tracks.each do |track| %>
@@ -9,7 +9,15 @@
       </li>
     <% end %>
   </ul>
-  <%= link_to "download zip", zip_path %>
-  <%= link_to "download file", download_path %>
-  <%= link_to "download multiple files", download_multiple_path %>
+  <p>
+    <%= link_to "download zip", zip_path %> <i style="color: green">(Working but only with local files)</i>
+  </p>
+  <p>
+    <%= link_to "download multiple files", download_multiple_path %> <i style="color: red">(Not Working)</i>
+  </p>
 </div>
+
+<script>
+  const title = document.getElementById('javascript');
+  console.log(title);
+</script>

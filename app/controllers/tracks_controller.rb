@@ -1,4 +1,9 @@
 class TracksController < ApplicationController
+  require 'zipline'
+  require "zipline/version"
+  require 'zip_tricks'
+  require "zipline/zip_generator"
+
   def index
     @tracks = Track.all
   end
@@ -22,14 +27,10 @@ class TracksController < ApplicationController
 
       # zipfile.add("track", File.join(Rails.root,'app/assets/audio/Aggressive_Beast_1.mp3'))
 
+      # THIS IS THE ONLY ONE WORKING
       zipfile.add("track.mp3", File.join(Rails.root,'app/assets/audio/Aggressive_Beast_1.mp3'))
 
-      # url = 'https://www.ogsoundfx.com/NeWsfXsHoPbAmSfx/testing/Aggressive_Beast_1.mp3'
-      # data = open(url).read
-      # zipfile.add("track.mp3", data)
 
-      # end
-      # zipfile.get_output_stream("myFile") { |f| f.write "myFile contains just this" }
     end
     url = zipfile
     data = open(url).read
@@ -62,5 +63,13 @@ class TracksController < ApplicationController
     title = params[:title]
     data = open(url).read
     send_data data, :disposition => 'attachment', :filename=>"#{title}.mp3"
+  end
+
+  def zipline
+    # include Zipline
+    # require 'zipline'
+    # require 'open-uri'
+    tracks = [['https://www.ogsoundfx.com/NeWsfXsHoPbAmSfx/testing/Aggressive_Beast_1.mp3', "Aggressive_Beast_1.mp3"], ['https://www.ogsoundfx.com/NeWsfXsHoPbAmSfx/testing/Aggressive_Beast_2.mp3', "Aggressive_Beast_2.mp3"], ['https://www.ogsoundfx.com/NeWsfXsHoPbAmSfx/testing/Aggressive_Beast_3.mp3', "Aggressive_Beast_1.mp3"]]
+    zipline(tracks, 'tracks.zip')
   end
 end

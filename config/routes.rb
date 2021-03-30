@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get "download", to: "tracks#download"
   get "download_multiple", to: "tracks#download_multiple"
   get "download_single", to: "tracks#download_single"
+  get "zipline", to: "tracks#zipline"
+  get "zipinit", to: "tracks#zipinit"
 end
